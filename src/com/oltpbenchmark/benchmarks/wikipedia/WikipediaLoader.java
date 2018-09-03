@@ -421,7 +421,7 @@ public class WikipediaLoader extends Loader<WikipediaBenchmark> {
         Table textTable = (this.getDatabaseType() == DatabaseType.SAPHANA) ? 
             this.benchmark.getTableCatalog(WikipediaConstants.TABLENAME_TEXT.toUpperCase()) : this.benchmark.getTableCatalog(WikipediaConstants.TABLENAME_TEXT);
         String textSQL = SQLUtil.getInsertSQL(textTable);
-        if (this.getDatabaseType() == DatabaseType.ORACLE) {
+        if (this.get () == DatabaseType.ORACLE) {
             // Oracle handles quoted object identifiers differently, do not escape names
             textSQL = SQLUtil.getInsertSQL(textTable, false);
         }
